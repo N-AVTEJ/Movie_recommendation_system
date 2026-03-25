@@ -1,0 +1,104 @@
+{
+  "test_date": "2026-03-15T15:14:35.756717",
+  "overall_accuracy": 31.7,
+  "overall_pass": false,
+  "deepface_available": true,
+  "per_emotion": [
+    {
+      "emotion": "happy",
+      "frames": 20,
+      "correct": 7,
+      "accuracy": 35.0,
+      "avg_conf": 91.9,
+      "confusion": {
+        "happy": 7,
+        "neutral": 10,
+        "fear": 3
+      },
+      "pass": false,
+      "suggestions": [
+        "Often confused with 'neutral' \u2014 exaggerate expression more.",
+        "Run calibrate_emotions.py to improve HAPPY detection."
+      ]
+    },
+    {
+      "emotion": "sad",
+      "frames": 20,
+      "correct": 7,
+      "accuracy": 35.0,
+      "avg_conf": 89.7,
+      "confusion": {
+        "neutral": 9,
+        "fear": 4,
+        "sad": 7
+      },
+      "pass": false,
+      "suggestions": [
+        "Often confused with 'neutral' \u2014 exaggerate expression more.",
+        "Run calibrate_emotions.py to improve SAD detection."
+      ]
+    },
+    {
+      "emotion": "neutral",
+      "frames": 20,
+      "correct": 4,
+      "accuracy": 20.0,
+      "avg_conf": 83.6,
+      "confusion": {
+        "sad": 9,
+        "neutral": 4,
+        "fear": 1,
+        "happy": 6
+      },
+      "pass": false,
+      "suggestions": [
+        "Often confused with 'sad' \u2014 exaggerate expression more.",
+        "Run calibrate_emotions.py to improve NEUTRAL detection."
+      ]
+    },
+    {
+      "emotion": "fear",
+      "frames": 20,
+      "correct": 0,
+      "accuracy": 0.0,
+      "avg_conf": 76.0,
+      "confusion": {
+        "sad": 20
+      },
+      "pass": false,
+      "suggestions": [
+        "Run calibrate_emotions.py to improve FEAR detection."
+      ]
+    },
+    {
+      "emotion": "angry",
+      "frames": 20,
+      "correct": 20,
+      "accuracy": 100.0,
+      "avg_conf": 96.3,
+      "confusion": {
+        "angry": 20
+      },
+      "pass": true,
+      "suggestions": []
+    },
+    {
+      "emotion": "surprise",
+      "frames": 20,
+      "correct": 0,
+      "accuracy": 0.0,
+      "avg_conf": 76.0,
+      "confusion": {
+        "angry": 12,
+        "sad": 3,
+        "neutral": 4,
+        "fear": 1
+      },
+      "pass": false,
+      "suggestions": [
+        "Often confused with 'angry' \u2014 exaggerate expression more.",
+        "Run calibrate_emotions.py to improve SURPRISE detection."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "trained_at": "2026-03-08T00:10:06.776505",
+  "overall_accuracy": 63.074999999999996,
+  "features": {
+    "content_based": {
+      "ngram_range": [
+        1,
+        2
+      ],
+      "max_features": 3000,
+      "sublinear_tf": true
+    },
+    "collaborative_filtering": {
+      "svd_k": 5
+    },
+    "hybrid": {
+      "content_weight": 0.7,
+      "collab_weight": 0.3
+    },
+    "mood_based": {
+      "mood_weight": 0.4,
+      "sentiment_weight": 0.15,
+      "rating_weight": 0.15
+    },
+    "nlp_search": {
+      "tfidf_weight": 0.8,
+      "sentiment_weight": 0.2,
+      "ngram_range": [
+        1,
+        2
+      ]
+    },
+    "diversity_mmr": {
+      "mmr_lambda": 0.3
+    },
+    "cold_start": {
+      "mmr_diversity": true,
+      "preference_matching": "genre+mood"
+    },
+    "emotion_mapping": {
+      "emotion_to_mood": {
+        "happy": "Happy",
+        "sad": "Sad",
+        "angry": "Action",
+        "fear": "Sad",
+        "disgust": "Action",
+        "surprise": "Happy",
+        "neutral": "Motivational",
+        "contempt": "Action"
+      }
+    }
+  }
+}
