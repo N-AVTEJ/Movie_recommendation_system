@@ -1,47 +1,50 @@
-# Movie Recommendation System
+# 🎬 CineIndia — AI-Powered Movie Recommendation System
+### Foundation Data Science (FDS) Production Project
 
-## Description
-This project is a movie recommendation system that utilizes collaborative filtering and content-based filtering techniques to suggest movies to users based on their preferences and viewing history.
+> **CineIndia** is a production-grade movie recommendation engine that leverages a multi-algorithm approach to solve the most difficult problems in information retrieval: the Cold Start problem, the Filter Bubble and lack of transparency (XAI).
 
-## Installation
+📖 **[Project Navigation Guide](./PROJECT_DETAILS.md)** | ⚛️ **[Technical & Architecture Deep-Dive](./ABOUT_CINEINDIA.md)**
 
-To set up this project locally, follow these steps:
+---
 
-1. Clone the repository:
+## 🏗️ Tech Stack
+
+- **Backend**: Python, Flask, MySQL, Pandas/NumPy, Scikit-learn, SciPy, VADER, DeepFace, OpenCV
+- **Frontend**: Next.js 16, React 19, Tailwind CSS v4
+
+---
+
+## 🛠️ Installation & Execution
+
+### Prerequisites
+- **Python 3.8+**
+- **Node.js 18+**
+- **MySQL Server**
+
+### Steps
+1. **Clone & Environment**:
    ```bash
-   git clone https://github.com/N-AVTEJ/Movie_recommendation_system.git
+   git clone <repository-url>
+   cd "Movie recommendation system"
+   python -m venv .venv
+   .venv\Scripts\activate  # Windows
    ```
-   
-2. Navigate into the project directory:
-   ```bash
-   cd Movie_recommendation_system
-   ```
 
-3. Install the required dependencies:
+2. **Database Setup**: Start MySQL and import `database/schema.sql` (update credentials in `backend/app.py` if needed).
+
+3. **Backend Setup**:
    ```bash
+   cd backend
    pip install -r requirements.txt
+   python init_db.py  # Seed database
+   python app.py      # Runs on port 5000
    ```
 
-## Usage
+4. **Frontend Setup** (open a new terminal):
+   ```bash
+   cd frontend
+   npm install
+   npm run dev        # Runs on port 3000
+   ```
 
-To run the application, execute:
-```bash
-python app.py
-```
-
-### Features
-- **User-Based Recommendations**: Suggests movies to users based on similar user preferences.
-- **Item-Based Recommendations**: Recommends movies based on content similarity.
-
-## Contributing
-
-We welcome contributions! Please follow these steps to contribute:
-
-1. Fork the repository.
-2. Create a new branch (e.g., `feature/your-feature`).
-3. Make your changes and commit them.
-4. Push to your branch and open a pull request.
-
-## License
-
-This project is licensed under the MIT License.
+*For detailed insights on all 12 AI/ML algorithms, project logic, and system architecture, please see the [Technical & Architecture Deep-Dive](./ABOUT_CINEINDIA.md).*
