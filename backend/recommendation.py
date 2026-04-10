@@ -29,7 +29,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'Navtej@2006',
+    'password': '',
     'database': 'movie_recommendation_db'
 }
 
