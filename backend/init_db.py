@@ -4,7 +4,7 @@ import os
 
 def create_connection():
     # Try with the known password first
-    passwords = ['Navtej@2006', 'root', 'password', '']
+    passwords = ['', 'root', 'password', '']
     
     for p in passwords:
         try:
