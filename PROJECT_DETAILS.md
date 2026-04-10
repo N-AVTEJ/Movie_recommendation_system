@@ -1,12 +1,43 @@
 # 🎬 CineIndia — Project Explanation & Feature Guide
 
-This document provides a detailed breakdown of all **12 AI/ML features** in the CineIndia Movie Recommendation System, along with instructions on how to test them.
+This document provides a detailed breakdown of all core **AI/ML features** and **future enhancements** in the CineIndia Movie Recommendation System, along with instructions on how to test them.
 
 ---
 
-## 🚀 How to Test Emotion AI (Step-by-Step)
+## 🚀 Core AI Features (Live Now)
 
-**Note**: The emotion detection feature is currently available as a standalone script, not integrated into the main dashboard UI.
+These features are fully integrated into the CineIndia dashboard.
+
+### 1. Content-Based Filtering (TF-IDF)
+*   **What it is**: Recommends movies similar to one you already like.
+*   **How it works**: It tokenizes the `genre`, `description`, `cast`, and `mood` of every movie. It then builds a **TF-IDF Matrix** and uses **Cosine Similarity** to find the "closest" matches in the vector space.
+*   **Test by**: Clicking on any movie card (e.g., "RRR") and looking at the "More Like This" section.
+
+### 2. Collaborative Filtering (SVD)
+*   **What it is**: "Users who liked this also liked..."
+*   **How it works**: It uses **Singular Value Decomposition (SVD)** on the user-movie rating matrix. It identifies patterns in how different users rate movies to predict what you might like even if you haven't seen it yet.
+*   **Requirement**: You need to rate a few movies first so the AI can understand your taste.
+
+### 3. Hybrid Recommendation
+*   **What it is**: The best of both worlds.
+*   **How it works**: It calculates a weighted score: **60% Content-based + 40% Collaborative**. This ensures you get movies that are similar to your favorites but also surprising recommendations from other users.
+
+### 4. Mood-Based Recommendation
+*   **What it is**: Matches your current feeling to a movie genre.
+*   **How it works**: Uses a mapping (e.g., Happy → Comedy) combined with **VADER Sentiment Analysis** on movie descriptions to ensure the *tone* of the movie matches your mood.
+
+---
+
+## 🔮 Roadmap: Future Enhancements
+
+The following features represent the "Phase 2" of CineIndia development. We focus on automated intelligence and cutting-edge vision AI.
+
+### 🌟 Vision AI: Real-time Emotion Detection
+**Status**: Experimental Standalone Prototype Ready.
+
+**Note**: The emotion detection feature is planned as a future enhancement and is currently available only as an experimental standalone script. It is designed to eventually replace manual mood selection with automated facial analysis.
+
+### How to Test the Emotion AI Prototype (Step-by-Step)
 
 If you want to test the webcam-based recommendation feature:
 
@@ -35,29 +66,7 @@ If you want to test the webcam-based recommendation feature:
 
 ---
 
-## 🧠 Deep-Dive: All 12 Features explained
-
-### 1. Content-Based Filtering (TF-IDF)
-*   **What it is**: Recommends movies similar to one you already like.
-*   **How it works**: It tokenizes the `genre`, `description`, `cast`, and `mood` of every movie. It then builds a **TF-IDF Matrix** and uses **Cosine Similarity** to find the "closest" matches in the vector space.
-*   **Test by**: Clicking on any movie card (e.g., "RRR") and looking at the "More Like This" section.
-
-### 2. Collaborative Filtering (SVD)
-*   **What it is**: "Users who liked this also liked..."
-*   **How it works**: It uses **Singular Value Decomposition (SVD)** on the user-movie rating matrix. It identifies patterns in how different users rate movies to predict what you might like even if you haven't seen it yet.
-*   **Requirement**: You need to rate a few movies first so the AI can understand your taste.
-
-### 3. Hybrid Recommendation
-*   **What it is**: The best of both worlds.
-*   **How it works**: It calculates a weighted score: **60% Content-based + 40% Collaborative**. This ensures you get movies that are similar to your favorites but also surprising recommendations from other users.
-
-### 4. Mood-Based Recommendation
-*   **What it is**: Matches your current feeling to a movie genre.
-*   **How it works**: Uses a mapping (e.g., Happy → Comedy) combined with **VADER Sentiment Analysis** on movie descriptions to ensure the *tone* of the movie matches your mood.
-
-### 5. Emotion Detection via Webcam
-*   **What it is**: AI that sees your face to suggest movies.
-*   **How it works**: Uses `DeepFace` to detect 7 emotions. These are mapped to internal moods (e.g., Surprise → Happy, Fear → Sad).
+## 🧠 Deep-Dive: Other Core Capabilities
 
 ### 6. Explainable AI (XAI)
 *   **What it is**: No more "Black Box" recommendations.

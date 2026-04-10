@@ -29,11 +29,11 @@ CineIndia is built as a **Decoupled Monolith**.
 *   **Library**: `vaderSentiment` (`SentimentIntensityAnalyzer`)
 *   **Explanation**: We don't just use genres. We use **NLP Sentiment Analysis** on the plot summary. For a "Happy" mood, we boost movies that have a positive sentiment score (> 0.5) and penalize those with negative scores.
 
-### 4. Facial Recognition: Emotion Detection
-*   **Feature**: Real-time webcam suggestions.
+### 4. Future Enhancement: Emotion Detection (Vision AI)
+*   **Status**: 🏗️ Roadmap Item (Standalone Prototype Available)
 *   **Library**: `deepface`, `opencv-python`
 *   **Explanation**: We utilize a **Pre-trained Deep Neural Network (CNN)**. It analyzes facial landmarks and pixel intensity to classify your facial expression into 7 categories. We use the `opencv` backend for faster frame processing during the detection phase.
-*   **Note**: Currently implemented as standalone script (`emotion_detection_page.py`).
+*   **Implementation**: Currently available as a standalone experimental script (`backend/emotion_detection_page.py`) with plans for future dashboard integration.
 
 ### 5. Smart Search: Natural Language NLP
 *   **Feature**: Conversational search.

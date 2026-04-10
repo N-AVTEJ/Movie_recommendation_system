@@ -3,30 +3,37 @@ from mysql.connector import Error
 import os
 
 def create_connection():
-    try:
-        connection = mysql.connector.connect(
-            host='localhost',
-            user='root',
-            password='Navtej@2006',
-            database='movie_recommendation_db'
-        )
-        if connection.is_connected():
-            return connection
-    except Error as e:
-        pass
+    # Try with the known password first
+    passwords = ['Navtej@2006', 'root', 'password', '']
     
-    try:
-        connection = mysql.connector.connect(
-            host='localhost',
-            user='root',
-            password='Navtej@2006'
-        )
-        if connection.is_connected():
-            return connection
-    except Error as e:
-         print(f"Error while connecting to MySQL: {e}")
-         print("Please ensure MySQL is running and update the password in init_db.py if needed.")
-
+    for p in passwords:
+        try:
+            # Try with specific database first
+            connection = mysql.connector.connect(
+                host='localhost',
+                user='root',
+                password=p,
+                database='movie_recommendation_db',
+                connect_timeout=2
+            )
+            if connection.is_connected():
+                return connection
+        except Error:
+            try:
+                # Try without database next
+                connection = mysql.connector.connect(
+                    host='localhost',
+                    user='root',
+                    password=p,
+                    connect_timeout=2
+                )
+                if connection.is_connected():
+                    return connection
+            except Error:
+                continue
+    
+    print("Error while connecting to MySQL: ALL PASSWORDS FAILED.")
+    print("Please ensure MySQL is running and update the password in init_db.py if needed.")
     return None
 
 def init_db():
@@ -45,9 +52,18 @@ def init_db():
     with open(schema_path, 'r') as f:
         schema = f.read()
 
-    # Execute schema
-    for result in cursor.execute(schema, multi=True):
-        pass
+    # Split schema and execute each statement separately
+    # This is more robust than multi=True which depends on library version
+    statements = schema.split(';')
+    for statement in statements:
+        if statement.strip():
+            try:
+                cursor.execute(statement)
+                # Consume result if any
+                while cursor.nextset():
+                    pass
+            except Error as e:
+                print(f"Statement failed: {statement[:50]}... Error: {e}")
 
     print("Database and table created successfully.")
     
